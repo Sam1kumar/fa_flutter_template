@@ -10,7 +10,7 @@ analyzer:
     missing_required_param: error
     annotate_overrides: error
     must_call_super: error
-    require_trailing_commas: warning
+    require_trailing_commas: error
     invalid_annotation_target: ignore
 
 linter:
