@@ -31,6 +31,7 @@ class SembastAppDb extends AppDb {
   @override
   Future<void> clear() async {
     logger.i("Clearing sembast app db...");
+    // [ChangeThis] Here call clear function of all StoreRef in the app.
     logger.i('Clearing sembast app successful');
   }
 

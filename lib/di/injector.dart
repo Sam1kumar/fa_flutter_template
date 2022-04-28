@@ -15,11 +15,14 @@ import 'package:internet_connection_checker/internet_connection_checker.dart';
 
 final locator = GetIt.asNewInstance();
 
-// const String _devOldBaseUrl = 'https://fa-api-debug.fieldassist.io';
+// [ChangeThis] Change it to required url
 const String _devBaseUrl = 'https://mt-debug-appapis.fieldassist.io/api';
 
-// const String _prodOldBaseUrl = 'https://fa-api.fieldassist.io';
+// [ChangeThis] Change it to required url
 const String _prodBaseUrl = 'https://mtappapis.fieldassist.io/api';
+
+// [ChangeThis] Change it to required url
+const String _betaBaseUrl = 'https://mtappapis.fieldassist.io/api';
 
 class AppInjector {
   factory AppInjector() => _singleton;
@@ -62,7 +65,7 @@ class AppInjector {
       ),
     );
 
-    // ApiHelper
+    // [ChangeThis] Deifne intercepters according the app requirement.
     final interceptors = <Interceptor>[
       
     ];
@@ -74,6 +77,13 @@ class AppInjector {
             baseUrl: _prodBaseUrl,
             interceptors: interceptors,
           );
+
+        case Flavor.BETA:
+          return ApiHelperImpl(
+            baseUrl: _betaBaseUrl,
+            interceptors: interceptors,
+          );
+
         default:
           return ApiHelperImpl(
             baseUrl: _devBaseUrl,
