@@ -5,21 +5,26 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "fa_flutter_template",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "fa_flutter_template (profile mode)",
+            "name": "DEV",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "args": [
+                "--flavor",
+                "dev",
+                "--no-sound-null-safety"
+            ],
+            "program": "${workspaceFolder}/lib/main_dev.dart"
         },
         {
-            "name": "fa_flutter_template (release mode)",
+            "name": "PROD",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release"
-        }
+            "args": [
+                "--flavor",
+                "prod",
+                "--no-sound-null-safety"
+            ],
+            "program": "${workspaceFolder}/lib/main_prod.dart"
+        },
     ]
 }
