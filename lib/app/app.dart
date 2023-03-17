@@ -1,8 +1,6 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:fa_flutter_template/modules/common/flavor_banner.dart';
 import 'package:fa_flutter_template/router/router.gr.dart';
-import 'package:fa_flutter_ui_kit/fa_flutter_ui_kit.dart' as ui;
-
 import 'package:flutter/material.dart';
 
 import 'env.dart';
@@ -34,7 +32,6 @@ class _MyAppState extends State<MyApp> {
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         title: widget.env.appTitle,
-        theme: ui.MyTheme().lightTheme,
         // darkTheme: MyTheme().darkTheme,
         routerDelegate: appRouter.delegate(),
         routeInformationParser: appRouter.defaultRouteParser(),

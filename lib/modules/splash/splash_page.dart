@@ -1,4 +1,3 @@
-import 'package:fa_flutter_ui_kit/fa_flutter_ui_kit.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
@@ -6,8 +5,7 @@ class SplashPage extends StatefulWidget {
   _SplashPageState createState() => _SplashPageState();
 }
 
-class _SplashPageState extends State<SplashPage>
-    with AfterLayoutMixin<SplashPage> {
+class _SplashPageState extends State<SplashPage> {
   double _opacity = 0;
 
   dynamic _error;
@@ -25,15 +23,8 @@ class _SplashPageState extends State<SplashPage>
   Widget build(BuildContext context) {
     return Scaffold(
       body: _error != null
-          ? AppErrorPage(
-              _error,
-              onRetryTap: () async {
-                setState(() {
-                  _error = null;
-                });
-                await Future.delayed(Duration(seconds: 1));
-                await init();
-              },
+          ? Container(
+              child: Text(_error),
             )
           : AnimatedOpacity(
               duration: const Duration(milliseconds: 300),
@@ -48,8 +39,10 @@ class _SplashPageState extends State<SplashPage>
                         constraints: BoxConstraints(
                           maxHeight: 80,
                         ),
-                        child: FieldAssistLogo(
-                          width: MediaQuery.of(context).size.width * 0.5,
+                        child: Container(
+                          child: Center(
+                            child: Text('Loaded Just enjoy'),
+                          ),
                         ),
                       ),
                     ),
@@ -58,9 +51,6 @@ class _SplashPageState extends State<SplashPage>
                       child: ConstrainedBox(
                         constraints: BoxConstraints(
                           maxHeight: 300,
-                        ),
-                        child: LaunchingGrowthImage(
-                          width: MediaQuery.of(context).size.width * 0.6,
                         ),
                       ),
                     ),

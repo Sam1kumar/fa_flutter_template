@@ -1,24 +1,12 @@
 import 'dart:async';
 
-
 import 'package:fa_flutter_template/app/env.dart';
-import 'package:fa_flutter_ui_kit/fa_flutter_ui_kit.dart';
-import 'package:flare_flutter/asset_provider.dart';
-import 'package:flare_flutter/flare_cache.dart';
-import 'package:flare_flutter/provider/asset_flare.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../di/injector.dart';
 import 'app.dart';
-
-final AssetProvider assetProvider = AssetFlare(
-  bundle: rootBundle,
-  name: Flares.SUCCESS_CHECK,
-);
-
-Future<void> _warmUpAnimations() => cachedActor(assetProvider);
 
 Future<void> mainCommon({required Environment env}) async {
   /// If you're running an application and
@@ -46,10 +34,6 @@ Future<void> mainCommon({required Environment env}) async {
 
     /// Don't prune the Flare cache, keep loaded Flare files warm and ready
     /// to be re-displayed.
-    FlareCache.doesPrune = false;
-
-    /// WarmUp Flare assets to be used directly by [FlareActor].
-    await _warmUpAnimations();
 
     final _flavor = env.flavor;
 
@@ -90,13 +74,16 @@ Future<void> mainCommon({required Environment env}) async {
           //   ),
           // ),
           MyApp(env),
-          
         );
       },
       _reportError,
     );
   } catch (e, s) {
-    runApp(AppErrorPage(e));
+    runApp(
+      Scaffold(
+        body: Center(child: Text(e.toString())),
+      ),
+    );
     return;
   }
 }

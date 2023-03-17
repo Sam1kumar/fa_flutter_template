@@ -39,17 +39,10 @@ dependencies:
   sembast_web: ^2.0.1+1
 
   # Api service
-  fa_flutter_api_client:
-    git:
-      url: https://github.com/FieldAssist/fa_flutter_api_client.git
-      ref: main
+
 
   collection: ^1.15.0
 
-  fa_flutter_ui_kit:
-    git:
-      url: https://github.com/FieldAssist/fa_flutter_ui_kit.git
-      ref: main
 
 dev_dependencies:
   flutter_test:
